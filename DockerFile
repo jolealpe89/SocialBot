@@ -1,0 +1,16 @@
+# Usando uma imagem base oficial do Python
+FROM python:3.10-slim
+
+# Definir diretório de trabalho
+WORKDIR /bot
+
+# Copiar o requirements.txt e instalar dependências
+COPY requirements.txt .
+
+#RUN pip install --no-cache-dir -r requirements.txt
+
+# Copiar todo o conteúdo da pasta local para dentro do contêiner
+COPY . .
+
+# Definir o comando padrão para rodar o bot
+CMD ["python", "launcher.py"]
